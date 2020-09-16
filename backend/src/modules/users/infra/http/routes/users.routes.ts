@@ -22,7 +22,7 @@ usersRouter.post('/', async (request, response) => {
       password,
     });
 
-    delete user.password;
+    // delete user.password;
 
     return response.json(user);
   } catch (err) {
@@ -42,7 +42,7 @@ usersRouter.patch(
       avatarFilename: request.file.filename,
     });
 
-    delete user.password;
+    // delete user.password;
 
     return response.json(user);
   },
