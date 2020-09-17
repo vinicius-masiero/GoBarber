@@ -3,6 +3,8 @@ import { container } from 'tsyringe';
 
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 
+import UserMap from '@mappers/UserMapper';
+
 export default class SessionsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { email, password } = request.body;
@@ -15,7 +17,8 @@ export default class SessionsController {
     });
 
     // delete user.password;
+    const mappedUser = UserMap.toDTO(user);
 
-    return response.json({ user, token });
+    return response.json({ mappedUser, token });
   }
 }

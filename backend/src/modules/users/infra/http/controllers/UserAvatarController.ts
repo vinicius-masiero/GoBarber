@@ -3,6 +3,8 @@ import { container } from 'tsyringe';
 
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
 
+import UserMap from '@mappers/UserMapper';
+
 export default class UserAvatarController {
   public async update(request: Request, response: Response): Promise<Response> {
     const updateUserAvatar = container.resolve(UpdateUserAvatarService);
@@ -13,7 +15,8 @@ export default class UserAvatarController {
     });
 
     // delete user.password;
+    const mappedUser = UserMap.toDTO(user);
 
-    return response.json(user);
+    return response.json(mappedUser);
   }
 }
