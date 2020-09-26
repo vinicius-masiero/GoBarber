@@ -1,7 +1,7 @@
 import User from '@modules/users/infra/typeorm/entities/User';
 
 export default class UserMap {
-  public static toDTO(user: User): Omit<User, 'password'> {
+  public static userWithoutPassword(user: User): Omit<User, 'password'> {
     return {
       id: user.id,
       name: user.name,

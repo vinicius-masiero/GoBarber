@@ -19,7 +19,7 @@ export default class UsersController {
       });
 
       // delete user.password;
-      const mappedUser = UserMap.toDTO(user);
+      const mappedUser = UserMap.userWithoutPassword(user);
 
       return response.json(mappedUser);
     } catch (err) {

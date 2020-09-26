@@ -17,8 +17,8 @@ export default class SessionsController {
     });
 
     // delete user.password;
-    const mappedUser = UserMap.toDTO(user);
+    const mappedUser = UserMap.userWithoutPassword(user);
 
-    return response.json({ mappedUser, token });
+    return response.json({ user: mappedUser, token });
   }
 }
