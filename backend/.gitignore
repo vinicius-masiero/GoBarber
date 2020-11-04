@@ -24,3 +24,6 @@ yarn-error.log*
 
 tmp/*
 !tmp/.gitkeep
+
+.env
+ormconfig.json
